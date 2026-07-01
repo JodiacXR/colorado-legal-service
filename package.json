@@ -1,0 +1,14 @@
+{
+  "name": "colorado-legal-service-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm --prefix client run dev\" \"npm --prefix server run dev\"",
+    "start": "npm --prefix server start",
+    "build": "npm --prefix client run build",
+    "install:all": "npm install --prefix client && npm install --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.2"
+  }
+}

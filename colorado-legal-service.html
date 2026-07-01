@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Colorado Legal Service — Save thousands on legal fees. Get personalized court forms, statutes, and step-by-step filing guidance for just $100 flat fee." />
+<title>Colorado Legal Service — Pro Se Filing Help</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1B2A4A;
+    --navy-light: #243659;
+    --gold: #C9A84C;
+    --gold-light: #e0c06a;
+    --bg: #F8F9FB;
+    --white: #ffffff;
+    --text: #2D2D2D;
+    --muted: #6B7280;
+    --border: #E5E7EB;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 5%;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 0.2px;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.72);
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 20px;
+    border-radius: 7px;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); }
+
+  .hamburger { display: none; background: none; border: none; cursor: pointer; }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 90px 5% 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(201,168,76,0.25);
+    margin-bottom: 24px;
+    letter-spacing: 0.4px;
+  }
+
+  .hero-badge svg { width: 13px; height: 13px; fill: var(--gold); }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    color: #fff;
+    line-height: 1.2;
+    max-width: 640px;
+    margin: 0 auto 18px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.62);
+    font-size: 16px;
+    max-width: 460px;
+    margin: 0 auto 36px;
+    line-height: 1.75;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px 30px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
+    padding: 13px 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 28px;
+    border-right: 1px solid var(--border);
+  }
+
+  .trust-item:last-child { border-right: none; }
+
+  .trust-icon {
+    width: 32px; height: 32px;
+    background: rgba(27,42,74,0.07);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .trust-icon svg { width: 16px; height: 16px; stroke: var(--navy); }
+
+  .trust-item span {
+    font-size: 13px;
+    color: #444;
+    font-weight: 500;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 72px 5%;
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+
+  .section-full {
+    padding: 72px 5%;
+  }
+
+  .section-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .section-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.75;
+    margin-bottom: 40px;
+  }
+
+  /* ── WHAT YOU GET CARDS ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(201,168,76,0.1);
+  }
+
+  .card-icon {
+    width: 42px; height: 42px;
+    background: rgba(27,42,74,0.06);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .card-icon svg { width: 20px; height: 20px; stroke: var(--navy); }
+
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps-section {
+    background: var(--bg);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    position: relative;
+  }
+
+  .step {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .step-num {
+    width: 38px; height: 38px;
+    background: var(--navy);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+
+  .step h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .step p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── WINS ── */
+  .wins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  .win-card {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 24px 20px;
+    transition: background 0.2s;
+  }
+
+  .win-card:hover { background: var(--navy-light); }
+
+  .win-card svg {
+    width: 22px; height: 22px;
+    stroke: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .win-card p {
+    color: rgba(255,255,255,0.82);
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  /* ── PRICING ── */
+  .pricing-section { background: var(--bg); }
+
+  .pricing-box {
+    background: var(--navy);
+    border-radius: 18px;
+    padding: 48px 40px;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .price-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 28px;
+    margin-top: 4px;
+  }
+
+  .pricing-list {
+    list-style: none;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  .pricing-list li {
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .pricing-list li svg {
+    width: 16px; height: 16px;
+    stroke: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px 0;
+    border-radius: 9px;
+    display: block;
+    width: 100%;
+    transition: background 0.2s;
+  }
+
+  .btn-gold:hover { background: var(--gold-light); }
+
+  /* ── CASE TYPES ── */
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .case-card {
+    border-left: 3px solid var(--gold);
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 20px;
+    transition: box-shadow 0.2s;
+  }
+
+  .case-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+
+  .case-card svg {
+    width: 20px; height: 20px;
+    stroke: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .case-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .case-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── CTA BOTTOM ── */
+  .cta-section {
+    background: var(--navy);
+    padding: 80px 5%;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 32px);
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .cta-section p {
+    color: rgba(255,255,255,0.58);
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111d33;
+    padding: 22px 5%;
+    text-align: center;
+  }
+
+  footer p {
+    color: rgba(255,255,255,0.3);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  /* ── DIVIDER ── */
+  hr { border: none; border-top: 1px solid var(--border); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .trust-item { padding: 8px 14px; border-right: none; border-bottom: 1px solid var(--border); }
+    .trust-bar { flex-direction: column; align-items: center; }
+    .pricing-box { padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Colorado <span>Legal</span> Service</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#cases">Case types</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#intake" class="nav-cta">Get started — $100</a>
+  </div>
+  <button class="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+    Colorado Courts — Pro Se Filing Guidance
+  </div>
+  <h1>Save thousands on legal fees — <em>file your own case</em> in Colorado</h1>
+  <p>Get the exact court forms, relevant statutes, and step-by-step guidance to navigate Colorado courts with confidence. Personalized to your case for a $100 flat fee.</p>
+  <div class="hero-btns">
+    <a href="#intake" class="btn-primary">Get started — $100 flat fee</a>
+    <a href="#how-it-works" class="btn-ghost">See how it works</a>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+    </div>
+    <span>4+ settlements won</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    </div>
+    <span>Fast turnaround</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+    </div>
+    <span>Ready-to-file forms</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+    </div>
+    <span>Colorado courts only</span>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<!-- INTAKE FORM -->
+<div id="intake" class="section">
+  <p class="eyebrow">Intake form</p>
+  <h2 class="section-title">Tell us about your case</h2>
+  <p class="section-sub">Share a few details and we’ll prepare a custom filing package for your situation.</p>
+
+  <form id="intakeForm" novalidate>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="jane@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone number</label>
+        <input id="phone" name="phone" type="tel" placeholder="(303) 555-0101" required />
+      </div>
+      <div class="form-group">
+        <label for="caseType">Case type</label>
+        <select id="caseType" name="caseType" required>
+          <option value="">Select a case type</option>
+          <option value="Family law">Family law</option>
+          <option value="Civil case">Civil case</option>
+          <option value="Criminal case">Criminal case</option>
+          <option value="Small claims">Small claims</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label for="county">County or court location</label>
+        <input id="county" name="county" type="text" placeholder="Denver County" />
+      </div>
+      <div class="form-group full">
+        <label for="summary">Tell us what happened</label>
+        <textarea id="summary" name="summary" placeholder="Briefly describe your situation, the parties involved, and what you need help with." required></textarea>
+      </div>
+    </div>
+
+    <div class="form-submit">
+      <button type="submit" class="btn-gold">Submit intake</button>
+    </div>
+    <div id="formNotice" class="notice" role="status" aria-live="polite"></div>
+  </form>
+</div>
+
+<hr />
+
+<div id="services" class="section">
+  <p class="eyebrow">What you get</p>
+  <h2 class="section-title">Everything you need to file your case</h2>
+  <p class="section-sub">No fluff. Just the exact tools, documents, and guidance to walk into a Colorado court fully prepared.</p>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">
+        <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <h3>Court forms — simplified</h3>
+      <p>Word-format versions of official state forms — much easier to fill out than the originals, tailored to your case type.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      </div>
+      <h3>Statutes & case law</h3>
+      <p>Relevant Colorado statutes and case law you can copy and paste directly into your motions and filings.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      </div>
+      <h3>Step-by-step filing guide</h3>
+      <p>Clear instructions on starting your case, serving the complaint properly, and using legal research tools like LexisNexis.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h3>Limited representation tips</h3>
+      <p>How to use a lawyer for just one hour under CRCP 11(b) — without paying a full retainer or giving up your voice.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h3>Know your rights</h3>
+      <p>Understand how Colorado judges treat pro se litigants and which rules — like CRS 13-5.7-101 — work in your favor.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <h3>Personal intake review</h3>
+      <p>Submit your case details and receive a package built specifically for your situation — not a generic template.</p>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<!-- HOW IT WORKS -->
+<div id="how-it-works" class="section-full steps-section">
+  <div class="section-inner">
+    <p class="eyebrow">How it works</p>
+    <h2 class="section-title">Three steps to filing your case</h2>
+    <p class="section-sub" style="margin-bottom:36px;">Simple, fast, and built for people who've never navigated a courtroom before.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Submit your intake form</h3>
+        <p>Tell us about your situation. Takes less than 5 minutes and helps us build the right package for your case.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Receive your package</h3>
+        <p>Get your tailored forms, relevant statutes, and filing instructions delivered directly to you — fast.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>File with confidence</h3>
+        <p>Walk into Colorado court prepared. Cite the law, present your case clearly, and represent yourself effectively.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="section">
+  <p class="eyebrow">Results</p>
+  <h2 class="section-title">Real settlements. No lawyer required.</h2>
+  <p class="section-sub">These outcomes were achieved by knowing the rules, filing correctly, and negotiating smart — no expensive attorney needed.</p>
+  <div class="wins-grid">
+    <div class="win-card">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+      <p>Negotiated a satisfactory settlement against eBay through a formal complaint process — without setting foot in court.</p>
+    </div>
+    <div class="win-card">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <p>Reached a favorable settlement against a state school district by citing the right statutes and filing correctly.</p>
+    </div>
+    <div class="win-card">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      <p>Won a settlement against a major shopping mall company — saved thousands compared to hiring a full attorney.</p>
+    </div>
+    <div class="win-card">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      <p>Settled against a major vacation timeshare company without entering the court system at all.</p>
+    </div>
+    <div class="win-card">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      <p>Drafted a divorce settlement agreement the judge signed within 30 days — a completely cost-free divorce for both parties.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div id="pricing" class="section-full pricing-section">
+  <div class="section-inner" style="text-align:center;">
+    <p class="eyebrow">Pricing</p>
+    <h2 class="section-title">Simple, transparent pricing</h2>
+    <p class="section-sub" style="margin:0 auto 40px;">One price. No hourly billing. No retainers. No surprises.</p>
+    <div class="pricing-box">
+      <div class="price-amount">$100</div>
+      <div class="price-label">One-time flat fee &nbsp;·&nbsp; No hidden costs</div>
+      <ul class="pricing-list">
+        <li>
+          <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Simplified court forms for your case type
+        </li>
+        <li>
+          <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Relevant Colorado statutes &amp; case law included
+        </li>
+        <li>
+          <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Step-by-step filing instructions
+        </li>
+        <li>
+          <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Process serving guidance (CRCP 4)
+        </li>
+        <li>
+          <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          LexisNexis usage basics
+        </li>
+        <li>
+          <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Limited representation strategy (CRCP 11b)
+        </li>
+      </ul>
+      <a href="#intake" class="btn-gold">Start your intake form →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CASE TYPES -->
+<div id="cases" class="section">
+  <p class="eyebrow">Case types</p>
+  <h2 class="section-title">We cover the most common Colorado cases</h2>
+  <p class="section-sub">If your case type isn't listed, reach out — we may still be able to help.</p>
+  <div class="case-grid">
+    <div class="case-card">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+      <h3>Civil cases</h3>
+      <p>Small claims up to $7,500 or district court complaints up to $100,000 under the simplified CRCP 16.1 procedure.</p>
+    </div>
+    <div class="case-card">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      <h3>Family law</h3>
+      <p>Divorce, legal separation, parenting time changes, child support motions, and cost-free separation agreements.</p>
+    </div>
+    <div class="case-card">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      <h3>Criminal cases</h3>
+      <p>Understand your arraignment, evaluate plea deals, and know your options for reducing charges before entering court.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BOTTOM -->
+<div class="cta-section">
+  <h2>Ready to take control of your case?</h2>
+  <p>Join others who saved thousands by filing smart — not expensive.</p>
+  <a href="#intake" class="btn-primary" style="font-size:15px; padding:15px 38px;">Get started for $100 →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Colorado Legal Service &nbsp;·&nbsp; Colorado courts only &nbsp;·&nbsp; No information on this site constitutes legal advice or guarantees any outcome.</p>
+</footer>
+
+<script>
+  const form = document.getElementById('intakeForm');
+  const notice = document.getElementById('formNotice');
+
+  function showNotice(type, text) {
+    notice.className = `notice ${type}`;
+    notice.textContent = text;
+  }
+
+  if (form) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      showNotice('success', 'Submitting your intake...');
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const response = await fetch('/api/submit-intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          showNotice('error', result.message || 'Your intake could not be submitted.');
+          return;
+        }
+
+        showNotice('success', 'Your intake was submitted successfully. We’ll review it shortly.');
+        form.reset();
+      } catch (error) {
+        showNotice('error', 'Something went wrong while submitting your intake. Please try again.');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
